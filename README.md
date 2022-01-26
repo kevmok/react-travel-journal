@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+# Travel Journal Built with React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Lightweight React app that takes in an "API" and generates components from the data retrieved.
+In this project that API is just a file called "data.js" that export a list with 3 objects that contain the data for each component.
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+### The Goal
 
-### `npm start`
+User should be able to:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+-   [x] Change the "API" data and modify the components generated
+-   [x] Add more travel locations
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Demo
 
-### `npm test`
+[Website Demo](https://react-travel-journal.vercel.app/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Screenshot
 
-### `npm run build`
+![App Screenshot](https://i.imgur.com/2AIplBD.jpg)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## My process
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Built with
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+-   React
+-   HTML markup
+-   CSS
+-   Javascript
+-   JSX
 
-### `npm run eject`
+### What I learned
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+-   How to work with a "fake" API and objects with React
+-   Mapping arrays to show multiple components
+-   The usage of props
+-   Manipulating data
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```jsx
+// Imported data array with objects
+import Navbar from './components/navbar';
+import Main from './components/main';
+import data from './data';
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+// React allows the user to display multiple components by mapping an array
+// that returns a component for each item in the array.
+function App() {
+    const travelData = data.map((item) => {
+        return <Main key={item.id} {...item} />;
+    });
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    return (
+        <div>
+            <Navbar />
+            {travelData}
+        </div>
+    );
+}
+```
 
-## Learn More
+## Installation
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Clone this repository and install the dependencies...
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+  git clone https://github.com/kevmok/svelte-developer-card.git my-app
+  cd my-app
+  npm install
+```
 
-### Code Splitting
+```bash
+npm run start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Author
 
-### Analyzing the Bundle Size
+-   Website - [kevinmok.com](https://kevinmok.com)
+-   GitHub - [@kevmok](https://www.github.com/Kevmok)
+-   Twitter - [@hustlerBoxer](https://twitter.com/hustlerBoxer)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Acknowledgements
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+-   [Scrimba](https://scrimba.com) - For the guidance and incredible courses
